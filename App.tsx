@@ -31,10 +31,6 @@ import {
 const apiKey = 'AIzaSyC2hR3eos5g1I1s7z1TusIPV611B5LbhPY';
 const spreadsheetId = '1e3WtwcC7BUEQMO5ZSLeAcCJJRv6A_ZnnB05lYM1qE1s';
 
-// pls use https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account to get secret.json
-const secret = require('./credential.json');
-const credentials = require('./credential_rn.json');
-
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
   const {RNTwitterSignIn} = NativeModules;

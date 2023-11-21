@@ -10,7 +10,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@react-native-firebase/app": "^18.6.1",
     "@react-native-google-signin/google-signin": "^10.1.1",
     "@react-native-twitter-signin/twitter-signin": "^1.2.0",
     "axios": "^1.6.2",
