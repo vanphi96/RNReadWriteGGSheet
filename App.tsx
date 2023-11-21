@@ -119,6 +119,27 @@ function App() {
     }
   };
 
+  const checkTokenInvalid = async () => {
+    try {
+      const response = await axios.get(
+        `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${token}`,
+      );
+
+      // Kiểm tra xem token còn hiệu lực hay không
+      if (response.data.expires_in) {
+        const expiresIn = response.data.expires_in;
+        console.log(
+          `AccessToken còn hiệu lực, thời gian còn lại: ${expiresIn} giây`,
+        );
+      } else {
+        console.log('AccessToken đã hết hạn');
+      }
+    } catch (error) {
+      // Xử lý lỗi
+      console.error('Lỗi kiểm tra AccessToken:', error);
+    }
+  };
+
   useEffect(() => {}, []);
 
   const backgroundStyle = {
@@ -175,6 +196,18 @@ function App() {
             }}
             onPress={writeData}>
             <Text style={{textAlign: 'center'}}>write</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'blue',
+              width: 100,
+              height: 40,
+              justifyContent: 'center',
+              borderRadius: 10,
+              marginVertical: 20,
+            }}
+            onPress={checkTokenInvalid}>
+            <Text style={{textAlign: 'center'}}>check token invalid</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
